@@ -1,0 +1,37 @@
+<div class="menu">
+    <div class="menuHeader">
+        <span class="menuVersion">v{{appVersion}}</span>
+        <img class="menuImg" src="./assets/leftArrow.svg" (click)="toggleMenu()"
+            [ngStyle]="{'transform': !isMenuOpen?'rotate(180deg)':'rotate(0deg)'}">
+    </div>
+    <ul class="menuArea" [ngClass]="{disabled: !isMenuOpen}">
+        <ng-container *ngFor="let menuItem of menuList">
+            <div *ngIf="menuItem.childMenuItemList.length > 0">
+                <li [ngStyle]="{'background-color': menuItem.backgroundColor}"
+                    [ngClass]="{menuItem: true, clickMenuItem: clickItem.name == menuItem.name}"
+                    (click)="onToggleMenuItem(menuItem)" (mouseover)="onMouseover(menuItem)"
+                    (mouseout)="onMouseout(menuItem)">
+                    {{menuItem.name}}
+                    <img [id]="menuItem.name +'state'" class="toggleImg" src="./assets/blackArrow.svg">
+                </li>
+                <ng-container *ngIf="getMenuItemIsOpen(menuItem)">
+                    <ng-container *ngFor="let menuChildItem of menuItem.childMenuItemList">
+                        <li [ngStyle]="{'background-color': menuChildItem.backgroundColor}"
+                            [ngClass]="{menuChildItem: true, clickMenuItem: clickItem.name == menuChildItem.name}"
+                            (click)="onClickMenuItem(menuChildItem)">
+                            {{menuChildItem.name}}
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <li *ngIf="menuItem.childMenuItemList.length === 0"
+                [ngStyle]="{'background-color': menuItem.backgroundColor}"
+                [ngClass]="{menuItem: true, clickMenuItem: clickItem.name == menuItem.name}"
+                (click)="onClickMenuItem(menuItem)">
+                {{menuItem.name}}
+            </li>
+        </ng-container>
+    </ul>
+
+</div>
