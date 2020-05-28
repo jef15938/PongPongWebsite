@@ -4,13 +4,17 @@ import { HomePageComponent } from './Component/home-page/home-page.component';
 import { AjaxComponent } from './Component/rxjs/ajax/ajax.component';
 import { BindCallbackComponent } from './Component/rxjs/bind-callback/bind-callback.component';
 import { DeferComponent } from './Component/rxjs/defer/defer.component';
+import { EmptyComponent } from './Component/rxjs/empty/empty.component';
+import { FromComponent } from './Component/rxjs/from/from.component';
 
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'ajax', component: AjaxComponent},
-  { path: 'bindCallback', component: BindCallbackComponent},
-  { path: 'defer', component: DeferComponent},
+  { path: 'ajax', component: AjaxComponent },
+  { path: 'bindCallback', component: BindCallbackComponent },
+  { path: 'defer', component: DeferComponent },
+  { path: 'empty', component: EmptyComponent },
+  { path: 'from', component: FromComponent },
 ];
 
 @NgModule({

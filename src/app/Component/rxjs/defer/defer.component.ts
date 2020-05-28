@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { of, defer } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { of, defer, from } from 'rxjs';
+import { tap, take } from 'rxjs/operators';
 // declare var $: any;
 
 @Component({
@@ -10,11 +10,11 @@ import { tap } from 'rxjs/operators';
 })
 export class DeferComponent implements OnInit {
 
-  // 延遲 API 取值時間點
   private of$ = of(
     Math.floor(Math.random() * 100)
   );
 
+  // 延遲 API 取值時間點
   private defer$ = defer(() =>
     of(
       Math.floor(Math.random() * 100)

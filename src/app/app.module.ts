@@ -8,6 +8,8 @@ import { MenuComponent } from './Component/menu/menu.component';
 import { AjaxComponent } from './Component/rxjs/ajax/ajax.component';
 import { BindCallbackComponent } from './Component/rxjs/bind-callback/bind-callback.component';
 import { DeferComponent } from './Component/rxjs/defer/defer.component';
+import { EmptyComponent } from './Component/rxjs/empty/empty.component';
+import { FromComponent } from './Component/rxjs/from/from.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { DeferComponent } from './Component/rxjs/defer/defer.component';
     MenuComponent,
     AjaxComponent,
     BindCallbackComponent,
-    DeferComponent
+    DeferComponent,
+    EmptyComponent,
+    FromComponent
   ],
   imports: [
     BrowserModule,

@@ -58,7 +58,9 @@ export class MenuComponent implements OnInit {
     rxjsMenuItem.childMenuItemList = [
       new MenuItem('ajax', '/ajax', '#ffcfcf'),
       new MenuItem('bindCallback', '/bindCallback', '#ffcfcf'),
-      new MenuItem('defer', '/defer')
+      new MenuItem('defer', '/defer'),
+      new MenuItem('empty', '/empty'),
+      new MenuItem('from', '/from')
     ];
     return [
       new MenuItem('homePage', ''),
