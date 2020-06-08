@@ -64,6 +64,7 @@ export class MenuComponent implements OnInit {
     ];
     return [
       new MenuItem('homePage', ''),
+      new MenuItem('dragObject', '/dragObject'),
       rxjsMenuItem,
     ];
   }

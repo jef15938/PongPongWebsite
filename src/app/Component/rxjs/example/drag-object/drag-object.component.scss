@@ -1,0 +1,11 @@
+@import '../../../../Style/project-common.scss';
+
+.square {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    z-index: 9;
+}

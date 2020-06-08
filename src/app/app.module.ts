@@ -10,6 +10,7 @@ import { BindCallbackComponent } from './Component/rxjs/bind-callback/bind-callb
 import { DeferComponent } from './Component/rxjs/defer/defer.component';
 import { EmptyComponent } from './Component/rxjs/empty/empty.component';
 import { FromComponent } from './Component/rxjs/from/from.component';
+import { DragObjectComponent } from './Component/rxjs/example/drag-object/drag-object.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FromComponent } from './Component/rxjs/from/from.component';
     BindCallbackComponent,
     DeferComponent,
     EmptyComponent,
-    FromComponent
+    FromComponent,
+    DragObjectComponent
   ],
   imports: [
     BrowserModule,
