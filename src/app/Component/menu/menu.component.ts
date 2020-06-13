@@ -18,8 +18,8 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router
   ) {
-    // this.appVersion = `v${version}`;
-    this.appVersion = `2020-06-13`;
+    this.appVersion = `v${version}`;
+    // this.appVersion = `2020-06-13`;
   }
 
   ngOnInit() {
