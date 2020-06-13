@@ -33,7 +33,7 @@ export class AutoCompleteComponent implements OnInit {
       distinctUntilChanged(),
       
     ).subscribe((result)=>{
-      document.getElementsByClassName('auto-complete-result')[0].innerHTML = `Value: ${result}<br/>Time: ${_.format(new Date(), 'HH:MM:SS')}`;
+      document.getElementById('result').innerHTML = `Value: ${result}<br/>Time: ${_.format(new Date(), 'HH:MM:SS')}`;
     })
   }
 
