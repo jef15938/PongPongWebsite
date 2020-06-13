@@ -1,0 +1,27 @@
+jobs:
+  deploy:
+    working_directory: ~/PongPongWebsite
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: PongPongWebsite-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: PongPongWebsite-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run: git config --global user.email "jef15938@gmail.com"
+      - run: git config --global user.name "jef15938"
+      - run: npx ng deploy --no-silent --base-href=/PongPongWebsite/ --message="[ci skip] - Auto build deploy"
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs: 
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master

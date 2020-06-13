@@ -7,6 +7,7 @@ import { DeferComponent } from './Component/rxjs/defer/defer.component';
 import { EmptyComponent } from './Component/rxjs/empty/empty.component';
 import { FromComponent } from './Component/rxjs/from/from.component';
 import { DragObjectComponent } from './Component/rxjs/example/drag-object/drag-object.component';
+import { AutoCompleteComponent } from './Component/rxjs/example/auto-complete/auto-complete.component';
 
 
 export const routes: Routes = [
@@ -17,6 +18,7 @@ export const routes: Routes = [
   { path: 'empty', component: EmptyComponent },
   { path: 'from', component: FromComponent },
   { path: 'dragObject', component: DragObjectComponent },
+  { path: 'autoComplete', component: AutoCompleteComponent },
 ];
 
 @NgModule({
