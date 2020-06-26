@@ -5,16 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
-  
+export class AppComponent {
+
   public title: string;
-  public isMenuOpen: boolean = true;
+  public isMenuOpen = true;
   constructor() {
 
   }
 
   onMenuStatusChange(isMenuOpen) {
-    console.log("isMenuOpen: ",isMenuOpen);
+    console.log('isMenuOpen: ', isMenuOpen);
     this.isMenuOpen = isMenuOpen;
   }
 }

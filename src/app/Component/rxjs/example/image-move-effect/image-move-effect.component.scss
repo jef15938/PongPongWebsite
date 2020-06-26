@@ -1,0 +1,31 @@
+@import '../../../../Style/project-common.scss';
+
+// .img-area {
+//   position: absolute;
+//   width: 80%;
+//   height: 80%;
+//   right: 10%;
+//   top: 15%;
+//   overflow: scroll;
+
+//   img {
+//     position: relative;
+//     width: 2000px;
+//     height: 1000px;
+//     // overflow: scroll;
+//   }
+// }
+.img-area {
+  position: absolute;
+  width: 100vh;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+}

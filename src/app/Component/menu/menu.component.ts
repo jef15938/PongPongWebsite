@@ -9,12 +9,6 @@ import { version } from '../../../../package.json';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
-  public isMenuOpen: boolean = true;
-  public appVersion: string = ''
-  public clickItem: MenuItem;
-  public menuList: Array<MenuItem> = [];
-  private menuItemIsOpenMap: Map<string, boolean> = new Map();
   constructor(
     private router: Router
   ) {
@@ -22,12 +16,18 @@ export class MenuComponent implements OnInit {
     // this.appVersion = `2020-06-13`;
   }
 
+  public isMenuOpen = true;
+  public appVersion = '';
+  public clickItem: MenuItem;
+  public menuList: Array<MenuItem> = [];
+  private menuItemIsOpenMap: Map<string, boolean> = new Map();
+
+  @Output() menuStatus: EventEmitter<boolean> = new EventEmitter();
+
   ngOnInit() {
     this.menuList = this.mockMenuList();
     this.clickItem = this.menuList[0];
   }
-
-  @Output() menuStatus: EventEmitter<boolean> = new EventEmitter();
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -44,18 +44,18 @@ export class MenuComponent implements OnInit {
     const getIsOpen = !!this.menuItemIsOpenMap.get(menuItem.name);
     this.menuItemIsOpenMap.set(menuItem.name, !getIsOpen);
 
-    let targetImg = document.getElementById(`${menuItem.name}state`);
+    const targetImg = document.getElementById(`${menuItem.name}state`);
     if (this.menuItemIsOpenMap.get(menuItem.name)) {
-      (<HTMLImageElement>targetImg).style.transform = 'rotate(90deg)';
+      (targetImg as HTMLImageElement).style.transform = 'rotate(90deg)';
     }
     else {
-      (<HTMLImageElement>targetImg).style.transform = 'rotate(270deg)';
+      (targetImg as HTMLImageElement).style.transform = 'rotate(270deg)';
     }
   }
 
   private mockMenuList(): Array<MenuItem> {
 
-    let rxjsMenuItem = new MenuItem('Rxjs', '--');
+    const rxjsMenuItem = new MenuItem('Rxjs', '--');
     rxjsMenuItem.childMenuItemList = [
       new MenuItem('ajax', '/ajax', '#ffcfcf'),
       new MenuItem('bindCallback', '/bindCallback', '#ffcfcf'),
@@ -67,6 +67,8 @@ export class MenuComponent implements OnInit {
       new MenuItem('homePage', ''),
       new MenuItem('dragObject', '/dragObject'),
       new MenuItem('autoComplete', '/autoComplete'),
+      new MenuItem('generateFibonacci', '/generateFibonacci'),
+      new MenuItem('imageMoveEffect', '/imageMoveEffect'),
       rxjsMenuItem,
     ];
   }
@@ -76,14 +78,14 @@ export class MenuComponent implements OnInit {
   }
 
   public onMouseover(menuItem: MenuItem) {
-    let targetImg = document.getElementById(`${menuItem.name}state`);
-    (<HTMLImageElement>targetImg).src = './assets/whiteArrow.svg'
+    const targetImg = document.getElementById(`${menuItem.name}state`);
+    (targetImg as HTMLImageElement).src = './assets/whiteArrow.svg';
 
   }
 
   public onMouseout(menuItem: MenuItem) {
-    let targetImg = document.getElementById(`${menuItem.name}state`);
-    (<HTMLImageElement>targetImg).src = './assets/blackArrow.svg'
+    const targetImg = document.getElementById(`${menuItem.name}state`);
+    (targetImg as HTMLImageElement).src = './assets/blackArrow.svg';
   }
 
 }
